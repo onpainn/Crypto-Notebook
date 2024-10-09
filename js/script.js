@@ -2,7 +2,7 @@
 const form = document.querySelector('#form');
 const cards = document.querySelector('#cards')
 
-function playAnimate(){
+function playAnimateItem(){
             function onEntry(entry){
                 entry.forEach(change => {
                 if(change.isIntersecting){
@@ -19,14 +19,32 @@ function playAnimate(){
             };
         };
 
+function playAnimatePage(){
+    function onEntry(entry){
+        entry.forEach(change => {
+            if(change.isIntersecting){
+                change.target.classList.add('showhad');
+            }
+        });
+    }
+    let options = { threshold: [0.5] };
+    let observer = new IntersectionObserver(onEntry, options);
+    let elements = document.querySelectorAll('.hed');
+
+    for (let elm of elements){
+        observer.observe(elm);
+    };
+};
+playAnimatePage();
 const fetchData = async () => {
     const url = `https://api.cryptorank.io/v1/currencies?api_key=19615549501bc12ec034522707875f6411d430f235e44d3d4138a8c851a0`;
     const response = await fetch(url);
     const data = await response.json()
-    console.log(data);
+
+
     let i = 0;
     while(i < 100){       
-        playAnimate();
+        playAnimateItem();
         const html = `
         <div class="item">
             <div class="info">
