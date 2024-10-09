@@ -62,6 +62,19 @@ const fetchData = async () => {
 }
 fetchData();
 
+// Реализация поиска реального времени
+document.querySelector("input[type=\"text\"]").addEventListener("input", (e) => {
+    [...document.querySelectorAll(".item")]
+    .forEach(item => {
+      if (item.textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+        item.style.display = "flex";
+      } 
+      else {
+        item.style.display = "none";
+      }
+    });
+  });
+
 
 
 
