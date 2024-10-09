@@ -12,6 +12,9 @@ body{
 	display: none;
 }
 @media (max-width: 480px) {
+	body{
+        display: block;
+    }
     header{
         display: grid;
         align-items: center;
