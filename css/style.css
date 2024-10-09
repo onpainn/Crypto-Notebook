@@ -9,6 +9,7 @@
 }
 body{
     background: var(#eeeeee);
+	display: none;
 }
 @media (max-width: 480px) {
     header{
