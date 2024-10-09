@@ -62,6 +62,9 @@ const fetchData = async () => {
 }
 fetchData();
 
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+});
 // Реализация поиска реального времени
 document.querySelector("input[type=\"text\"]").addEventListener("input", (e) => {
     [...document.querySelectorAll(".item")]
